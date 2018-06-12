@@ -14,6 +14,7 @@ export default function () {
 
   this.get('/teams', () => {
     return {
+      data: [],
       '-dsanldsajkldsa': {
         basicDetails: {
           firstName: 'Adam',
