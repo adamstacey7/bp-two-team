@@ -1,4 +1,5 @@
 # BP^2 Team [![Build Status](https://travis-ci.org/adamstacey7/bp-two-team.svg?branch=master)](https://travis-ci.org/adamstacey7/bp-two-team)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/adamstacey7/bp-two-team.svg?columns=all)](https://waffle.io/adamstacey7/bp-two-team)
 Two birds one stone - learn emberjs &amp;&amp; team portfolio
 
 ---
