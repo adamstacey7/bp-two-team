@@ -14,6 +14,9 @@ module.exports = function(environment) {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
+      },
+      API: {
+        HOST: ''
       }
     },
 
@@ -45,6 +48,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.EmberENV.API.HOST = 'https://bp-two-team.herokuapp.com';
   }
 
   return ENV;
