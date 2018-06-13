@@ -11,7 +11,7 @@ module('Acceptance | create member', function(hooks) {
     assert.equal(currentURL(), '/member/create');
   });
 
-  test('check /member/create prompts user to create memeber', async function(assert) {
+  test('check /member/create prompts user to create member', async function(assert) {
     await visit('/member/create');
 
     assert.equal(this.element.querySelector('h2').textContent, 'Please create a member');
