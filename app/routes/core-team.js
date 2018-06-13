@@ -1,3 +1,7 @@
 import Route from "@ember/routing/route";
 
-export default Route;
+export default Route.extend({
+  model() {
+    return this.get("store").findAll("coreTeamMembers");
+  }
+});
