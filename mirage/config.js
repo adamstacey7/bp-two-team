@@ -12,39 +12,32 @@ export default function () {
   this.namespace = '/api'; // make this `/api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
-  this.get('/members', () => {
-    return {
-      "data": [
-        {
-          "type": "member",
-          "id": "1",
-          "attributes": {
-            "first-name": "Tom",
-            "last-name": "Smith"
-          }
-        },
-        {
-          "type": "member",
-          "id": "2",
-          "attributes": {
-            "first-name": "Mark",
-            "last-name": "Peterson"
-          }
-        }
-      ]
-    };
-  });
-
-  this.get('/members/1', () => {
-    return {
-      "data": {
-        "type": "member",
-        "id": "1",
-        "attributes": {
-          "first-name": "Tom",
-          "last-name": "Smith"
-        }
+  const data = [
+    {
+      "type": "member",
+      "id": "1",
+      "attributes": {
+        "first-name": "Tom",
+        "last-name": "Smith"
       }
-    };
-  });
+    },
+    {
+      "type": "member",
+      "id": "2",
+      "attributes": {
+        "first-name": "Mark",
+        "last-name": "Peterson"
+      }
+    }
+  ];
+
+  this.get('/members', () => ({
+    data
+  }));
+
+  this.get('/members/:id', (sch, req) => ({
+    data: data.filter(item => item.id === req.params.id)[0]
+  }));
+
+  this.get('/members/3', { message: 'Not Found' }, 404); 
 }
