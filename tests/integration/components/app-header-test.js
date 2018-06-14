@@ -1,24 +1,17 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test, setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('app-header', 'Integration | Component | app-header', {
-  integration: true
-});
+module('Integration | Component | app-header', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{app-header}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#app-header}}
-      template block text
-    {{/app-header}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  test('should render the header with the header title passed through', async function(assert) {
+    this.set('title', 'test title');
+    await render(hbs`{{app-header headerTitle=title }}`);
+    assert.equal(
+      this.element.querySelector('.title').textContent.trim(),
+      'test title',
+      'should be equal to the title passed through'
+    );
+  });
 });
