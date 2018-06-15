@@ -8,8 +8,5 @@ export default Service.extend({
   },
   setHeaderTitle(title) {
     this.set('headerTitle', title);
-  },
-  getHeaderTitle() {
-    return this.get('headerTitle');
   }
 });

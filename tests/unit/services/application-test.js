@@ -8,10 +8,4 @@ module('Unit | Service | application', function(hooks) {
     appService.setHeaderTitle('test title');
     assert.equal(appService.get('headerTitle'), 'test title');
   });
-
-  test('should get the headerTitle', function(assert) {
-    const appService = this.owner.lookup('service:application');
-    appService.set('headerTitle', 'test title');
-    assert.equal(appService.getHeaderTitle(), 'test title');
-  });
 });
