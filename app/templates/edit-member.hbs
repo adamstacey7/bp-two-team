@@ -1,5 +1,6 @@
 <div class="first-name">First Name: {{model.firstName}}</div>
 <div class="last-name">Last Name: {{model.lastName}}</div>
+<h2>Experience</h2>
 <ul class="experiences">
   {{#each model.experiences as |item|}}
     <li class="experience">
@@ -9,5 +10,17 @@
     </li>
   {{else}}
     <li>No Experiences</li>
-   {{/each}}
+  {{/each}}
+</ul>
+<h2>Education</h2>
+<ul class="educations">
+  {{#each model.educations as |item|}}
+    <li class="education">
+      <div class="title">Title: {{item.title}}</div>
+      <div class="start-date">Start Date: {{item.startDate}}</div>
+      <div class="end-date">End Date: {{item.endDate}}</div>
+    </li>
+  {{else}}
+    <li>No Education</li>
+  {{/each}}
 </ul>

@@ -32,6 +32,18 @@ export default function () {
               "id": "2"
             }          
           ]
+        },
+        "educations": {
+          "data": [
+            {
+              "type": "education",
+              "id": "1"
+            },
+            {
+              "type": "education",
+              "id": "2"
+            }          
+          ]          
         }
       },
     },
@@ -45,7 +57,7 @@ export default function () {
     }
   ];
 
-  var experienceData = [
+  const experienceData = [
     {
       "type": "experience",
       "id": "1",
@@ -66,9 +78,26 @@ export default function () {
     }
   ];
 
-  this.get('/experiences', () => ({
-    data: experienceData
-  }));
+  const educationData = [
+    {
+      "type": "education",
+      "id": "1",
+      "attributes": {
+        "title": "School",
+        "start-date": "1529061341148",
+        "end-date": "1529061347803"
+      }
+    },
+    {
+      "type": "education",
+      "id": "2",
+      "attributes": {
+        "title": "Uni",
+        "start-date": "1529061341148",
+        "end-date": "1529061347803"
+      }
+    }    
+  ]
 
   this.get('/members', () => ({
     data: memberData
@@ -78,22 +107,21 @@ export default function () {
     data: memberData.filter(item => item.id === req.params.id)[0]
   }));
 
+  this.get('/members/3', { message: 'Not Found' }, 404);
+
+  this.get('/experiences', () => ({
+    data: experienceData
+  }));
+
   this.get('/experiences/:id', (sch, req) => ({
     data: experienceData.filter(item => item.id === req.params.id)[0]
   }));
 
-  this.get('/members/3', { message: 'Not Found' }, 404); 
+  this.get('/educations', () => ({
+    data: educationData
+  }));
 
-  // this.get('/members', (db) => db.members);
-  // this.get('/members/:id', (db, req) => {
-  //   const id = req.params.id;
-  //   return db.members.find(id);
-  // });
-
-  // this.get('/experiences', (db) => db.experience);
-  
-  // this.get('/experiences/:id', (db, req) => {
-  //   const id = req.params.id;
-  //   return db.experiences.find(id);
-  // });  
+  this.get('/educations/:id', (sch, req) => ({
+    data: educationData.filter(item => item.id === req.params.id)[0]
+  }));
 }
