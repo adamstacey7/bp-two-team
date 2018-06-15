@@ -1,11 +1,13 @@
 <div class="first-name">First Name: {{model.firstName}}</div>
 <div class="last-name">Last Name: {{model.lastName}}</div>
-{{#each model.experiences as |item| }}
-<ul class="experience">
-  <li>Start Date: {{item.startDate}}</li>
-  <li>End Date: {{item.endDate}}</li>
-  <li>Title: {{item.title}}</li>
+<ul class="experiences">
+  {{#each model.experiences as |item|}}
+    <li class="experience">
+      <div class="title">Title: {{item.title}}</div>
+      <div class="start-date">Start Date: {{item.startDate}}</div>
+      <div class="end-date">End Date: {{item.endDate}}</div>
+    </li>
+  {{else}}
+    <li>No Experiences</li>
+   {{/each}}
 </ul>
-{{else}}
-  <span>No Experiences</span>
-{{/each}}

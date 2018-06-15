@@ -7,7 +7,7 @@ export default Route.extend({
   actions: {
     error: function(reason) {
       if (reason.errors[0].status == "404") {
-        this.transitionTo('not-found', '');
+        this.transitionTo('not-found', ' ');
       }
     }
   }

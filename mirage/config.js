@@ -83,4 +83,17 @@ export default function () {
   }));
 
   this.get('/members/3', { message: 'Not Found' }, 404); 
+
+  // this.get('/members', (db) => db.members);
+  // this.get('/members/:id', (db, req) => {
+  //   const id = req.params.id;
+  //   return db.members.find(id);
+  // });
+
+  // this.get('/experiences', (db) => db.experience);
+  
+  // this.get('/experiences/:id', (db, req) => {
+  //   const id = req.params.id;
+  //   return db.experiences.find(id);
+  // });  
 }
