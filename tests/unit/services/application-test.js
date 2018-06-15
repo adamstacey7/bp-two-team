@@ -1,12 +1,17 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test, setupTest } from 'ember-qunit';
 
-moduleFor('service:application', 'Unit | Service | application', {
-  // Specify the other units that are required for this test.
-  // needs: ['service:foo']
-});
+module('Unit | Service | application', function(hooks) {
+  setupTest(hooks);
 
-// Replace this with your real tests.
-test('it exists', function(assert) {
-  let service = this.subject();
-  assert.ok(service);
+  test('should set the headerTitle', function(assert) {
+    const appService = this.owner.lookup('service:application');
+    appService.setHeaderTitle('test title');
+    assert.equal(appService.get('headerTitle'), 'test title');
+  });
+
+  test('should get the headerTitle', function(assert) {
+    const appService = this.owner.lookup('service:application');
+    appService.set('headerTitle', 'test title');
+    assert.equal(appService.getHeaderTitle(), 'test title');
+  });
 });
