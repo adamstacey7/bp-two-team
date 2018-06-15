@@ -19,7 +19,8 @@ module('Acceptance | edit member', function(hooks) {
     assert.equal(this.element.querySelector('.first-name').textContent, 'First Name: Tom');
     assert.equal(this.element.querySelector('.last-name').textContent, 'Last Name: Smith');
 
-    //assert.equal(this.element.querySelector('.experience.title')[0].textContent, 'Title: Smith');
+    assert.equal(this.element.querySelectorAll('.experience .title')[0].textContent, 'Title: Porche');
+    assert.equal(this.element.querySelectorAll('.experience .title')[1].textContent, 'Title: Landrover');
   });
 
   test('check /member/3/edit redirects to 404 page', async function(assert) {
