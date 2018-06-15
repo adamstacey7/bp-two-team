@@ -1,12 +1,11 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test, setupTest } from 'ember-qunit';
 
-moduleFor('controller:application', 'Unit | Controller | application', {
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
-});
+module('Unit | Controller | application', function(hooks) {
+  setupTest(hooks);
 
-// Replace this with your real tests.
-test('it exists', function(assert) {
-  let controller = this.subject();
-  assert.ok(controller);
+  test('should inject the application service', function(assert) {
+    const appService = this.owner.lookup('service:application');
+    const appController = this.owner.lookup('controller:application');
+    assert.equal(appController.get('app'), appService);
+  });
 });
