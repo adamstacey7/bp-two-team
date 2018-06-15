@@ -12,14 +12,28 @@ export default function () {
   this.namespace = '/api'; // make this `/api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
-  const data = [
+  const memberData = [
     {
       "type": "member",
       "id": "1",
       "attributes": {
         "first-name": "Tom",
-        "last-name": "Smith"
-      }
+        "last-name": "Smith",
+      },
+      "relationships": {
+        "experiences": {
+          "data": [
+            {
+              "type": "experience",
+              "id": "1"
+            },
+            {
+              "type": "experience",
+              "id": "2"
+            }          
+          ]
+        }
+      },
     },
     {
       "type": "member",
@@ -31,12 +45,41 @@ export default function () {
     }
   ];
 
+  var experienceData = [
+    {
+      "type": "experience",
+      "id": "1",
+      "attributes": {
+        "title": "Porche",
+        "start-date": "1529061341148",
+        "end-date": "1529061347803"
+      }
+    },
+    {
+      "type": "experience",
+      "id": "2",
+      "attributes": {
+        "title": "Landrover",
+        "start-date": "1529061341148",
+        "end-date": "1529061347803"
+      }
+    }
+  ];
+
+  this.get('/experiences', () => ({
+    data: experienceData
+  }));
+
   this.get('/members', () => ({
-    data
+    data: memberData
   }));
 
   this.get('/members/:id', (sch, req) => ({
-    data: data.filter(item => item.id === req.params.id)[0]
+    data: memberData.filter(item => item.id === req.params.id)[0]
+  }));
+
+  this.get('/experiences/:id', (sch, req) => ({
+    data: experienceData.filter(item => item.id === req.params.id)[0]
   }));
 
   this.get('/members/3', { message: 'Not Found' }, 404); 
