@@ -7,11 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-<<<<<<< HEAD
   this.route('core-team');
-=======
   this.route('create-member', { path: '/member/create' });
->>>>>>> master
 });
 
 export default Router;
