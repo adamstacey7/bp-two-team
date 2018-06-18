@@ -2,12 +2,12 @@
   <h2>Please create a member</h2>
   <form {{action 'submit' model on='submit'}} class="form-inline">
     <div class="input-group">
-      {{input value=model.firstName class='form-control'}}
-      {{input value=model.lastName class='form-control'}}
+      {{input value=model.firstName class='form-control first-name'}}
+      {{input value=model.lastName class='form-control last-name'}}
       <div class="input-group-btn">
         <button
           type="submit"
-          class="btn btn-success"
+          class="btn btn-success submit"
           disabled={{model.isNotValid}}
         >
           Save Member
