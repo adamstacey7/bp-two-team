@@ -21,7 +21,7 @@ export default function() {
         'first-name': 'Adam',
         'full-name': 'Adam Stacey',
         'last-name': 'Stacey',
-        'profile-image': '',
+        'profile-image': 'adam-stacey.jpeg',
         role: 'Tech Lead',
         industries: [
           'Public Sector',
