@@ -109,6 +109,12 @@ export default function () {
 
   this.get('/members/3', { message: 'Not Found' }, 404);
 
+  this.post('/members', (sch, req) => {
+    const member = JSON.parse(req.requestBody);
+    member.data.id = '123';
+    return member;
+  });
+
   this.get('/experiences', () => ({
     data: experienceData
   }));
