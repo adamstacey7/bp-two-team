@@ -1,12 +1,8 @@
 <div class="row core-team">
+  {{#each model as |member|}}
   <div class="col-md-4">
-    {{team-list-item}}
+    {{team-list-item member=member.basicDetails}}
   </div>
-  <div class="col-md-4">
-    {{team-list-item}}
-  </div>
-  <div class="col-md-4">
-    {{team-list-item}}
-  </div>
+  {{/each}}
 </div>
 {{outlet}}
