@@ -16,6 +16,13 @@ export default function() {
       type: 'member',
       id: '1',
       attributes: {
+        bio:
+          'Adam is an IT professional passionate about front end development and . He has experience in all areas of the SDLC (Software Development Life Cycle) and excellent technical skills. He is a driven individual with a wide breadth of knowledge and a thirst for learning. He has been responsible for the development and maturity of software engineering process of front end development teams, and has a keen understanding of responsive design principles, is experienced in using Functional and Unit Testing methods. He is proficient in HTML5, CSS 3, JavaScript, AJAX and well versed with modern JavaScript libraries such as ReactJS and AngularJS. He also has experience of leading teams both onshore and offshore, but equally comfortable working on my own initiative or being part of a productive team.',
+        'first-name': 'Adam',
+        'full-name': 'Adam Stacey',
+        'last-name': 'Stacey',
+        'profile-image': '',
+        role: 'Tech Lead',
         industries: [
           'Public Sector',
           'Automotive',
@@ -39,12 +46,6 @@ export default function() {
         ]
       },
       relationships: {
-        'basic-details': {
-          data: {
-            type: 'basic-detail',
-            id: '1'
-          }
-        },
         'professional-experience': {
           data: [
             {
@@ -80,67 +81,6 @@ export default function() {
       }
     }
   ];
-
-  const basicDetailsData = [
-    {
-      type: 'basic-detail',
-      id: '1',
-      attributes: {
-        bio:
-          'Adam is an IT professional passionate about front end development and . He has experience in all areas of the SDLC (Software Development Life Cycle) and excellent technical skills. He is a driven individual with a wide breadth of knowledge and a thirst for learning. He has been responsible for the development and maturity of software engineering process of front end development teams, and has a keen understanding of responsive design principles, is experienced in using Functional and Unit Testing methods. He is proficient in HTML5, CSS 3, JavaScript, AJAX and well versed with modern JavaScript libraries such as ReactJS and AngularJS. He also has experience of leading teams both onshore and offshore, but equally comfortable working on my own initiative or being part of a productive team.',
-        'first-name': 'Adam',
-        'full-name': 'Adam Stacey',
-        'last-name': 'Stacey',
-        'profile-image': '',
-        role: 'Tech Lead'
-      }
-    }
-  ];
-
-  // const memberData = [
-  //   {
-  //     type: 'member',
-  //     id: '1',
-  //     attributes: {
-  //       'first-name': 'Tom',
-  //       'last-name': 'Smith'
-  //     },
-  //     relationships: {
-  //       experiences: {
-  //         data: [
-  //           {
-  //             type: 'experience',
-  //             id: '1'
-  //           },
-  //           {
-  //             type: 'experience',
-  //             id: '2'
-  //           }
-  //         ]
-  //       },
-  //       educations: {
-  //         data: [
-  //           {
-  //             type: 'education',
-  //             id: '1'
-  //           },
-  //           {
-  //             type: 'education',
-  //             id: '2'
-  //           }
-  //         ]
-  //       }
-  //     }
-  //   },
-  //   {
-  //     type: 'member',
-  //     id: '2',
-  //     attributes: {
-  //       'first-name': 'Mark',
-  //       'last-name': 'Peterson'
-  //     }
-  //   }
-  // ];
 
   const experienceData = [
     {
@@ -218,14 +158,6 @@ export default function() {
   }));
 
   this.get('/members/3', { message: 'Not Found' }, 404);
-
-  this.get('/basic-details', (sch, req) => ({
-    data: basicDetailsData
-  }));
-
-  this.get('/basic-details/:id', (sch, req) => ({
-    data: basicDetailsData.filter(detail => detail.id === req.params.id)[0]
-  }));
 
   this.get('/experiences', () => ({
     data: experienceData
