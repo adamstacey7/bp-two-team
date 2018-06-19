@@ -18,9 +18,9 @@ module('Acceptance | core team', function(hooks) {
   test("should have the text 'Hello World!", async function(assert) {
     await visit('/');
     assert.equal(
-      this.element.querySelector('.core-team p').textContent,
-      'Hello World!',
-      'should display Hello World!'
+      this.element.querySelector('.header .title').textContent.trim(),
+      'Team Overview',
+      'should display header of front page'
     );
   });
 });

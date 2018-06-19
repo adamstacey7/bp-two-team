@@ -10,6 +10,6 @@ export default DS.Model.extend({
   skills: DS.attr(),
   technologies: DS.attr(),
   industries: DS.attr(),
-  professionalExperiences: DS.hasMany('experience'),
+  experiences: DS.hasMany('experience'),
   educations: DS.hasMany('education')
 });

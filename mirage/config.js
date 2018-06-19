@@ -46,23 +46,23 @@ export default function() {
         ]
       },
       relationships: {
-        'professional-experience': {
+        experiences: {
           data: [
             {
-              type: 'professional-experience',
+              type: 'experience',
               id: '1'
             },
             {
-              type: 'professional-experience',
+              type: 'experience',
               id: '2'
             },
             {
-              type: 'professional-experience',
+              type: 'experience',
               id: '3'
             }
           ]
         },
-        education: {
+        educations: {
           data: [
             {
               type: 'education',
@@ -84,7 +84,7 @@ export default function() {
 
   const experienceData = [
     {
-      type: 'professional-experience',
+      type: 'experience',
       id: '1',
       attributes: {
         details:
@@ -93,7 +93,7 @@ export default function() {
       }
     },
     {
-      type: 'professional-experience',
+      type: 'experience',
       id: '2',
       attributes: {
         details:
@@ -102,7 +102,7 @@ export default function() {
       }
     },
     {
-      type: 'professional-experience',
+      type: 'experience',
       id: '3',
       attributes: {
         details:
