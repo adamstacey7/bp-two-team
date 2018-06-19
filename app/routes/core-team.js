@@ -8,6 +8,6 @@ export default Route.extend({
     this.get('application').setHeaderTitle('Team Overview');
   },
   model() {
-    return this.get('store').findAll('coreTeamMembers');
+    return this.get('store').findAll('member');
   }
 });
