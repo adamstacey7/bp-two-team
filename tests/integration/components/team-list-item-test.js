@@ -12,7 +12,6 @@ module('Integration | Component | team-list-item', function(hooks) {
   setupRenderingTest(hooks);
 
   test('should render the team list item with the data displayed correctly', async function(assert) {
-    debugger;
     this.set('member', ITEM);
     await render(hbs`{{team-list-item member=member}}`);
     assert.equal(
