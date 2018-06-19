@@ -48,11 +48,11 @@ module('Acceptance | edit member', function(hooks) {
 
     assert.equal(
       this.element.querySelectorAll('.education .title')[0].textContent,
-      'Title: School'
+      'Title: Digital Technology Solutions'
     );
     assert.equal(
       this.element.querySelectorAll('.education .title')[1].textContent,
-      'Title: Uni'
+      'Title: IT for professionals'
     );
   });
 
