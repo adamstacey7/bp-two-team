@@ -15,12 +15,21 @@ module('Acceptance | core team', function(hooks) {
     assert.equal(currentURL(), '/core-team');
   });
 
-  test("should have the text 'Hello World!", async function(assert) {
+  test('should display header with correct title', async function(assert) {
     await visit('/');
     assert.equal(
       this.element.querySelector('.header .title').textContent.trim(),
       'Team Overview',
       'should display header of front page'
+    );
+  });
+
+  test('should display correct number of team members', async function(assert) {
+    await visit('/');
+    assert.equal(
+      this.element.querySelectorAll('.member').length,
+      1,
+      'should be equal to the number of members returned from ember data'
     );
   });
 });
