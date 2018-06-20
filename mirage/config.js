@@ -17,4 +17,6 @@ export default function () {
 
   this.get('/educations');
   this.get('/experiences');
+
+  this.post('/members');
 }

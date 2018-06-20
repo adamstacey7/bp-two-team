@@ -3,10 +3,7 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-function setupServer(server) {
-  // server.createList('education', 2);
-  // server.createList('experience', 2);
-
+function generateMockData(server) {
   server.createList('member', 2, {
     experiences: server.createList('experience', 2),
     educations: server.createList('education', 2)
@@ -18,14 +15,14 @@ module('Acceptance | edit member', function(hooks) {
   setupMirage(hooks);
 
   test('visiting /member/1/edit', async function(assert) {
-    setupServer(server);
+    generateMockData(server);
     await visit('/member/1/edit');
 
     assert.equal(currentURL(), '/member/1/edit');
   });
 
   test('check /member/1/edit pulls through corret user data', async function(assert) {
-    setupServer(server);
+    generateMockData(server);
     await visit('/member/1/edit');
 
     assert.equal(this.element.querySelector('.first-name').textContent, 'First Name: Mark');
@@ -39,7 +36,6 @@ module('Acceptance | edit member', function(hooks) {
   });
 
   test('check /member/3/edit redirects to 404 page', async function(assert) {
-    setupServer(server);
     await visit('/member/3/edit');
 
     assert.equal(this.element.querySelector('h1').textContent, 'Route not found 404');
