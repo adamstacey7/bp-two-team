@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
@@ -30,6 +30,26 @@ module('Acceptance | core team', function(hooks) {
       this.element.querySelectorAll('.member').length,
       1,
       'should be equal to the number of members returned from ember data'
+    );
+  });
+
+  test('should go to member click of member', async function(assert) {
+    await visit('/');
+    await click('.member:first-child');
+    assert.equal(
+      currentURL(),
+      '/member/1',
+      "should navigate to first member's page"
+    );
+    assert.equal(
+      this.element.querySelector('.first-name').textContent.trim(),
+      'First Name: Adam',
+      'should equal first name of member 1'
+    );
+    assert.equal(
+      this.element.querySelector('.last-name').textContent.trim(),
+      'Last Name: Stacey',
+      'should equal last name of member 1'
     );
   });
 });

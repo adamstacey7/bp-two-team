@@ -1,8 +1,7 @@
 <div class="row core-team">
-  {{#each model as |member|}}
-  <div class="col-md-4 member">
-    {{#link-to "member.show" member}}{{team-list-item member=member}}{{/link-to}}
+  {{#each model as |member|}} {{#link-to "member.show" member}}
+  <div class="col-md-4 member">{{team-list-item member=member}}
   </div>
-  {{/each}}
+  {{/link-to}} {{/each}}
 </div>
 {{outlet}}
