@@ -14,14 +14,14 @@ module('Acceptance | edit member', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  test('visiting /member/1/edit', async function(assert) {
-    await visit('/member/1/edit');
+  test('visiting /member/1', async function(assert) {
+    await visit('/member/1');
 
-    assert.equal(currentURL(), '/member/1/edit');
+    assert.equal(currentURL(), '/member/1');
   });
 
-  test('check /member/1/edit pulls through corret user data', async function(assert) {
-    await visit('/member/1/edit');
+  test('check /member/1 pulls through corret user data', async function(assert) {
+    await visit('/member/1');
 
     assert.equal(
       this.element.querySelector('.first-name').textContent,

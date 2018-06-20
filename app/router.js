@@ -9,7 +9,12 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('core-team');
   this.route('not-found', { path: '/*path' });
-  this.route('member');
+  this.route('member', function() {
+    this.route('show', { path: '/:member_id' }, function() {
+      this.route('create');
+    });
+    this.route('create');
+  });
 });
 
 export default Router;
