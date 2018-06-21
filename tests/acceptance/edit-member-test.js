@@ -12,23 +12,4 @@ module('Acceptance | edit member', function(hooks) {
 
     assert.equal(currentURL(), '/member/1/edit');
   });
-
-  test('check /member/1/edit pulls through corret user data', async function(assert) {
-    await visit('/member/1/edit');
-
-    assert.equal(this.element.querySelector('.first-name').textContent, 'First Name: Tom');
-    assert.equal(this.element.querySelector('.last-name').textContent, 'Last Name: Smith');
-
-    assert.equal(this.element.querySelectorAll('.experience .title')[0].textContent, 'Title: Porche');
-    assert.equal(this.element.querySelectorAll('.experience .title')[1].textContent, 'Title: Landrover');
-
-    assert.equal(this.element.querySelectorAll('.education .title')[0].textContent, 'Title: School');
-    assert.equal(this.element.querySelectorAll('.education .title')[1].textContent, 'Title: Uni');    
-  });
-
-  test('check /member/3/edit redirects to 404 page', async function(assert) {
-    await visit('/member/3/edit');
-
-    assert.equal(this.element.querySelector('h1').textContent, 'Route not found 404');
-  });
 });
