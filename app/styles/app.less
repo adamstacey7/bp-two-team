@@ -6,8 +6,7 @@
 
 .header div {
   font-family: Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 2em;
+  font-size: 24px;
 }
 
 .title:after {
@@ -49,13 +48,9 @@
   box-shadow: 0 0 2px 3px #dcdcdc;
 }
 
-.column {
+.flex-column {
   display: flex;
   flex-direction: column;
-
-  .bio {
-    margin-bottom: 20px;
-  }
 }
 
 .flex-row {
@@ -72,13 +67,12 @@
   }
 }
 
-h2,
-h3,
-h4 {
-  color: #701dd6;
+h3 {
+  font-size: 18px;
 }
 
 h4 {
+  color: #701dd6;
   font-size: 12px;
   text-transform: uppercase;
 }
@@ -90,4 +84,34 @@ h4 {
 .role {
   color: #808080;
   text-transform: uppercase;
+}
+
+.bio {
+  margin-bottom: 20px;
+}
+
+.experience {
+  margin-top: 20px;
+  span {
+    color: #701dd6;
+  }
+  p {
+    margin-top: 10px;
+  }
+}
+
+.experience-container {
+  margin-bottom: 40px;
+}
+
+.education {
+  margin-top: 20px;
+}
+
+.member-container {
+  margin-bottom: 40px;
+}
+
+.member-container:last-child {
+  margin-bottom: 20px;
 }

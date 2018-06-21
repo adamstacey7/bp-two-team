@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-4 column">
+<div class="row member-container">
+  <div class="col-md-4 flex-flex-column">
     <div>
       <img class="photo" src="/assets/images/{{model.profileImage}}" />
     </div>
@@ -11,12 +11,12 @@
       <span>{{model.role}}</span>
     </div>
   </div>
-  <div class="col-md-8 column">
+  <div class="col-md-8 flex-column">
     <div class="bio">
       {{model.bio}}
     </div>
     <div class="flex-row">
-      <div class="column skills">
+      <div class="flex-column skills">
         <h4>Skills</h4>
         <ul>
           {{#each model.skills as |skill|}}
@@ -24,13 +24,56 @@
           {{/each}}
         </ul>
       </div>
-      <div class="column technologies">
+      <div class="flex-column technologies">
         <h4>Technologies</h4>
         <ul>
           {{#each model.technologies as |technology|}}
           <li>{{technology}}</li>
           {{/each}}
         </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="member-container">
+  {{app-header headerTitle="Professional Experience"}}
+  <div class="row experience-container">
+    <div class="col-md-4">
+      <h3>Recent Experience</h3>
+    </div>
+    <div class="col-md-8 flex-column">
+      <div class="experience">
+        <span>
+          Experience 1
+        </span>
+        <p> siklfeshlfehlweo;hisefhsefhdslffhsdoifheosfesidkfheowfhsduifghwefshsoghsoghsgoiesfg bisdashiodashfslhfsdhoifdshfdshsdfb
+          sofsfiposhfolfj sfeoghosghosdfo sfeohfsoefoshdfoieb sdifweshdfo
+        </p>
+      </div>
+      <div class="experience">
+        <span>
+          Experience 2
+        </span>
+        <p> siklfeshlfehlweo;hisefhsefhdslffhsdoifheosfesidkfheowfhsduifghwefshsoghsoghsgoiesfg bisdashiodashfslhfsdhoifdshfdshsdfb
+          sofsfiposhfolfj sfeoghosghosdfo sfeohfsoefoshdfoieb sdifweshdfo
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Education</h3>
+    </div>
+    <div class="col-md-8 flex-column">
+      <div class="education">
+        <p> siklfeshlfehlweo;hisefhsefhdslffhsdoifheosfesidkfheowfhsduifghwefshsoghsoghsgoiesfg bisdashiodashfslhfsdhoifdshfdshsdfb
+          sofsfiposhfolfj sfeoghosghosdfo sfeohfsoefoshdfoieb sdifweshdfo
+        </p>
+      </div>
+      <div class="education">
+        <p> siklfeshlfehlweo;hisefhsefhdslffhsdoifheosfesidkfheowfhsduifghwefshsoghsoghsgoiesfg bisdashiodashfslhfsdhoifdshfdshsdfb
+          sofsfiposhfolfj sfeoghosghosdfo sfeohfsoefoshdfoieb sdifweshdfo
+        </p>
       </div>
     </div>
   </div>
