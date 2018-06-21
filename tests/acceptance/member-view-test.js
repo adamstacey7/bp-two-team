@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import setupMockData from '../helpers/setupMockData';
 
 const DETAILS_1 =
   'Digital Services at the Border Programme. responsible for; Developing the frontend client for AFTC ensuring a high standard of delivery is met, Advising client of best practice for the UX/UI of AFTC and collaborating with BA’s to flush out wireframes, Supporting test team when needed and advising approaches to improve regression pack, Optimising frontend efficiency by creating generic reusable AngularJS components and utilising his frontend knowledge to suggest and improve current functionality and tech debt.';
@@ -15,12 +16,14 @@ module('Acceptance | member view', function(hooks) {
   setupMirage(hooks);
 
   test('visiting /member', async function(assert) {
-    await visit('/member/1');
-    assert.equal(currentURL(), '/member/1');
+    setupMockData(server);
+    await visit('/member/0');
+    assert.equal(currentURL(), '/member/0');
   });
 
-  test('check /member/1 pulls through corret user data', async function(assert) {
-    await visit('/member/1');
+  test('check /member/0 pulls through corret user data', async function(assert) {
+    setupMockData(server);
+    await visit('/member/0');
 
     assert.equal(
       this.element.querySelector('.first-name').textContent,
@@ -32,17 +35,16 @@ module('Acceptance | member view', function(hooks) {
     );
 
     assert.equal(
-      this.element.querySelectorAll('.experience .title')[0].textContent,
-      `Title: ${DETAILS_1}`
+      this.element.querySelectorAll('.experience .details')[0].textContent,
+      `Details: ${DETAILS_1}`
     );
     assert.equal(
-      this.element.querySelectorAll('.experience .title')[1].textContent,
-      `Title: ${DETAILS_2}`
+      this.element.querySelectorAll('.experience .details')[1].textContent,
+      `Details: ${DETAILS_2}`
     );
-
     assert.equal(
-      this.element.querySelectorAll('.experience .title')[2].textContent,
-      `Title: ${DETAILS_3}`
+      this.element.querySelectorAll('.experience .details')[2].textContent,
+      `Details: ${DETAILS_3}`
     );
 
     assert.equal(
@@ -55,8 +57,8 @@ module('Acceptance | member view', function(hooks) {
     );
   });
 
-  test('check /member/3/edit redirects to 404 page', async function(assert) {
-    await visit('/member/3/edit');
+  test('check /member/3 redirects to 404 page', async function(assert) {
+    await visit('/member/3');
 
     assert.equal(
       this.element.querySelector('h1').textContent,

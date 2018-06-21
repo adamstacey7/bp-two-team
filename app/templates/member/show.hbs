@@ -4,9 +4,7 @@
 <ul class="experiences">
   {{#each model.experiences as |item|}}
   <li class="experience">
-    <div class="title">Title: {{item.details}}</div>
-    <div class="start-date">Start Date: {{item.startDate}}</div>
-    <div class="end-date">End Date: {{item.endDate}}</div>
+    <div class="details">Details: {{item.details}}</div>
   </li>
   {{else}}
   <li>No Experiences</li>
@@ -17,8 +15,6 @@
   {{#each model.educations as |item|}}
   <li class="education">
     <div class="title">Title: {{item.title}}</div>
-    <div class="start-date">Start Date: {{item.startDate}}</div>
-    <div class="end-date">End Date: {{item.endDate}}</div>
   </li>
   {{else}}
   <li>No Education</li>
