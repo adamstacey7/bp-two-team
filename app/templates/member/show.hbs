@@ -1,26 +1,37 @@
-<div class="first-name">First Name: {{model.firstName}}</div>
-<div class="last-name">Last Name: {{model.lastName}}</div>
-<h2>Experience</h2>
-<ul class="experiences">
-  {{#each model.experiences as |item|}}
-  <li class="experience">
-    <div class="title">Title: {{item.details}}</div>
-    <div class="start-date">Start Date: {{item.startDate}}</div>
-    <div class="end-date">End Date: {{item.endDate}}</div>
-  </li>
-  {{else}}
-  <li>No Experiences</li>
-  {{/each}}
-</ul>
-<h2>Education</h2>
-<ul class="educations">
-  {{#each model.educations as |item|}}
-  <li class="education">
-    <div class="title">Title: {{item.title}}</div>
-    <div class="start-date">Start Date: {{item.startDate}}</div>
-    <div class="end-date">End Date: {{item.endDate}}</div>
-  </li>
-  {{else}}
-  <li>No Education</li>
-  {{/each}}
-</ul>
+<div class="row">
+  <div class="col-md-4 column">
+    <div>
+      <img class="photo" src="/assets/images/{{model.profileImage}}" />
+    </div>
+    <h3 class="name">
+      {{model.firstName}} {{model.lastName}}
+
+    </h3>
+    <div class="role">
+      <span>{{model.role}}</span>
+    </div>
+  </div>
+  <div class="col-md-8 column">
+    <div class="bio">
+      {{model.bio}}
+    </div>
+    <div class="flex-row">
+      <div class="column skills">
+        <h4>Skills</h4>
+        <ul>
+          {{#each model.skills as |skill|}}
+          <li>{{skill}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="column technologies">
+        <h4>Technologies</h4>
+        <ul>
+          {{#each model.technologies as |technology|}}
+          <li>{{technology}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
