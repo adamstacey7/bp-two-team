@@ -3,21 +3,30 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
+function generateMockData(server) {
+  server.createList('member', 2, {
+    experiences: server.createList('experience', 2),
+    educations: server.createList('education', 2)
+  });
+}
+
 module('Acceptance | edit member', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
   test('visiting /member/1/edit', async function(assert) {
+    generateMockData(server);
     await visit('/member/1/edit');
 
     assert.equal(currentURL(), '/member/1/edit');
   });
 
   test('check /member/1/edit pulls through corret user data', async function(assert) {
+    generateMockData(server);
     await visit('/member/1/edit');
 
-    assert.equal(this.element.querySelector('.first-name').textContent, 'First Name: Tom');
-    assert.equal(this.element.querySelector('.last-name').textContent, 'Last Name: Smith');
+    assert.equal(this.element.querySelector('.first-name').textContent, 'First Name: Mark');
+    assert.equal(this.element.querySelector('.last-name').textContent, 'Last Name: Peterson');
 
     assert.equal(this.element.querySelectorAll('.experience .title')[0].textContent, 'Title: Porche');
     assert.equal(this.element.querySelectorAll('.experience .title')[1].textContent, 'Title: Landrover');
