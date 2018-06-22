@@ -1,26 +1,96 @@
-<div class="first-name">First Name: {{model.firstName}}</div>
-<div class="last-name">Last Name: {{model.lastName}}</div>
-<h2>Experience</h2>
-<ul class="experiences">
-  {{#each model.experiences as |item|}}
-  <li class="experience">
-    <div class="title">Title: {{item.details}}</div>
-    <div class="start-date">Start Date: {{item.startDate}}</div>
-    <div class="end-date">End Date: {{item.endDate}}</div>
-  </li>
-  {{else}}
-  <li>No Experiences</li>
-  {{/each}}
-</ul>
-<h2>Education</h2>
-<ul class="educations">
-  {{#each model.educations as |item|}}
-  <li class="education">
-    <div class="title">Title: {{item.title}}</div>
-    <div class="start-date">Start Date: {{item.startDate}}</div>
-    <div class="end-date">End Date: {{item.endDate}}</div>
-  </li>
-  {{else}}
-  <li>No Education</li>
-  {{/each}}
-</ul>
+<div class="row member-container">
+  <div class="col-md-4">
+    <div>
+      <img class="photo" src="/assets/images/{{model.profileImage}}" />
+    </div>
+    <h3 class="name">
+      {{model.firstName}} {{model.lastName}}
+
+    </h3>
+    <div class="role">
+      <span>{{model.role}}</span>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="bio">
+      {{model.bio}}
+    </div>
+    <div class="flex-row">
+      <div class="skills">
+        <h4>Skills</h4>
+        <ul>
+          {{#each model.skills as |skill|}}
+          <li>{{skill}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="technologies">
+        <h4>Technologies</h4>
+        <ul>
+          {{#each model.technologies as |technology|}}
+          <li>{{technology}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="member-container">
+  {{app-header headerTitle="Professional Experience"}}
+  <div class="row experience-container">
+    <div class="col-md-4">
+      <h3>Recent Experience</h3>
+    </div>
+    <div class="col-md-8 flex-column">
+      <div class="experience">
+        <span>
+          Experience 1
+        </span>
+        <p>
+          Lorem ipsum dolor sit amet, vix nostrud definitiones comprehensam id, eius efficiendi mea in, est ea aeque persecuti. Mei
+          errem tamquam convenire ex. Te cibo aperiam reprimique eam, ex odio harum commodo pri. Vim maiorum reprimique et.
+          Lorem corpora at quo, vocent deserunt vix eu, erat impetus vel et. Dicat nostro tamquam cum et. At tantas noluisse
+          sit. Libris numquam tacimates ut pro, ne vel posidonium sadipscing. Ex alia oporteat disputationi mea, epicuri
+          pericula partiendo no vis, primis similique cum ei.
+        </p>
+      </div>
+      <div class="experience">
+        <span>
+          Experience 2
+        </span>
+        <p>
+          Lorem ipsum dolor sit amet, vix nostrud definitiones comprehensam id, eius efficiendi mea in, est ea aeque persecuti. Mei
+          errem tamquam convenire ex. Te cibo aperiam reprimique eam, ex odio harum commodo pri. Vim maiorum reprimique et.
+          Lorem corpora at quo, vocent deserunt vix eu, erat impetus vel et. Dicat nostro tamquam cum et. At tantas noluisse
+          sit. Libris numquam tacimates ut pro, ne vel posidonium sadipscing. Ex alia oporteat disputationi mea, epicuri
+          pericula partiendo no vis, primis similique cum ei.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Education</h3>
+    </div>
+    <div class="col-md-8 flex-column">
+      <div class="education">
+        <p>
+          Lorem ipsum dolor sit amet, vix nostrud definitiones comprehensam id, eius efficiendi mea in, est ea aeque persecuti. Mei
+          errem tamquam convenire ex. Te cibo aperiam reprimique eam, ex odio harum commodo pri. Vim maiorum reprimique et.
+          Lorem corpora at quo, vocent deserunt vix eu, erat impetus vel et. Dicat nostro tamquam cum et. At tantas noluisse
+          sit. Libris numquam tacimates ut pro, ne vel posidonium sadipscing. Ex alia oporteat disputationi mea, epicuri
+          pericula partiendo no vis, primis similique cum ei.
+        </p>
+      </div>
+      <div class="education">
+        <p>
+          Lorem ipsum dolor sit amet, vix nostrud definitiones comprehensam id, eius efficiendi mea in, est ea aeque persecuti. Mei
+          errem tamquam convenire ex. Te cibo aperiam reprimique eam, ex odio harum commodo pri. Vim maiorum reprimique et.
+          Lorem corpora at quo, vocent deserunt vix eu, erat impetus vel et. Dicat nostro tamquam cum et. At tantas noluisse
+          sit. Libris numquam tacimates ut pro, ne vel posidonium sadipscing. Ex alia oporteat disputationi mea, epicuri
+          pericula partiendo no vis, primis similique cum ei.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

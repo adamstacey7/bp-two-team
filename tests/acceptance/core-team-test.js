@@ -41,15 +41,5 @@ module('Acceptance | core team', function(hooks) {
       '/member/1',
       "should navigate to first member's page"
     );
-    assert.equal(
-      this.element.querySelector('.first-name').textContent.trim(),
-      'First Name: Adam',
-      'should equal first name of member 1'
-    );
-    assert.equal(
-      this.element.querySelector('.last-name').textContent.trim(),
-      'Last Name: Stacey',
-      'should equal last name of member 1'
-    );
   });
 });
