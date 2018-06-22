@@ -14,6 +14,9 @@ module('Acceptance | create member', function(hooks) {
   test('check /member/create prompts user to create member', async function(assert) {
     await visit('/member/create');
 
-    assert.equal(this.element.querySelector('h2').textContent, 'Please create a member');
+    assert.equal(
+      this.element.querySelector('h2').textContent,
+      'Please create a member'
+    );
   });
 });
