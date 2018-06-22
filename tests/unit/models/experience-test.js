@@ -6,7 +6,6 @@ moduleForModel('experience', 'Unit | Model | experience', {
 });
 
 test('it exists', function(assert) {
-  let model = this.subject();
-  // let store = this.store();
+  const model = this.subject();
   assert.ok(!!model);
 });

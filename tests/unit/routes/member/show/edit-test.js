@@ -6,6 +6,6 @@ moduleFor('route:member/show/edit', 'Unit | Route | member/show/edit', {
 });
 
 test('it exists', function(assert) {
-  let route = this.subject();
+  const route = this.subject();
   assert.ok(route);
 });
