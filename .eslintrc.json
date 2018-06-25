@@ -1,0 +1,50 @@
+{
+    "globals": {
+        "server": true
+    },
+    "root": true,
+    "plugins": [
+        "prettier",
+        "ember"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "airbnb-base",
+        "plugin:ember/recommended",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "import/no-extraneous-dependencies": 0,
+        "prefer-arrow-callback": 0,
+        "import/no-unresolved": 0,
+        "no-underscore-dangle": 0,
+        "prefer-rest-params": 0,
+        "prettier/prettier": "error"
+    },
+    "overrides": [
+        // node files
+        {
+          "files": [
+            "testem.js",
+            "ember-cli-build.js",
+            "config/**/*.js",
+            "lib/*/index.js"
+          ],
+          "parserOptions": {
+            "sourceType": "script",
+            "ecmaVersion": 2015
+          },
+          "env": {
+            "browser": false,
+            "node": true
+          }
+        }
+      ]
+}

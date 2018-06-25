@@ -6,6 +6,7 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
+// eslint-disable-next-line array-callback-return
 Router.map(function() {
   this.route('core-team');
   this.route('not-found', { path: '/*path' });
