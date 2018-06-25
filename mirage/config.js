@@ -12,10 +12,16 @@ export default function() {
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
   this.get('/members');
+  this.post('/members');
+
   this.get('/members/:id');
+  this.patch('/members/:id');
 
   this.get('/educations');
-  this.get('/experiences');
+  this.post('/educations');
+  this.patch('/educations/:id');
 
-  this.post('/members');
+  this.get('/experiences');
+  this.post('/experiences');
+  this.patch('/experiences/:id');  
 }
