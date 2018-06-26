@@ -35,7 +35,7 @@ module('Acceptance | core team', function(hooks) {
 
   test('should go to member click of member', async function(assert) {
     await visit('/');
-    await click('.member:first-child');
+    await click('.member:first-child .details');
     assert.equal(
       currentURL(),
       '/member/1',

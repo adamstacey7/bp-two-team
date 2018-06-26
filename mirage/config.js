@@ -159,6 +159,8 @@ export default function() {
 
   this.get('/members/3', { message: 'Not Found' }, 404);
 
+  this.del('/members/:id', () => ({}));
+
   this.get('/experiences', () => ({
     data: experienceData
   }));

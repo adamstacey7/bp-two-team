@@ -1,14 +1,20 @@
 <div class="row">
+  {{#link-to "member.show" member}}
   <div class="col-md-4">
     <img class="photo" src="assets/images/{{member.profileImage}}" />
   </div>
-  <div class="col-md-4 details">
+  {{/link-to}} {{#link-to "member.show" member}}
+  <div class="col-md-6 details">
     <div class="name">
       {{member.fullName}}
     </div>
     <div class="role">
       {{member.role}}
     </div>
+  </div>
+  {{/link-to}}
+  <div class="col-md-2">
+    <span {{action "deleteMember" member}}>&times;</span>
   </div>
 </div>
 {{yield}}
