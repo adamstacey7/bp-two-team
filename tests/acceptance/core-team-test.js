@@ -52,4 +52,15 @@ module('Acceptance | core team', function(hooks) {
       'should equal last name of member 1'
     );
   });
+
+  test('should delete member when clicking delete button for that member', async function(assert) {
+    await visit('/');
+
+    assert.equal(this.element.querySelectorAll('.member').length, 1);
+
+    await click('.delete:first-child');
+
+    assert.equal(currentURL(), '/core-team');
+    assert.equal(this.element.querySelectorAll('.member').length, 0);
+  });
 });

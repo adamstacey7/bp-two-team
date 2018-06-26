@@ -9,14 +9,5 @@ export default Route.extend({
   },
   model() {
     return this.get('store').findAll('member');
-  },
-  actions: {
-    deleteMember(member) {
-      this._deleteMember(member);
-    }
-  },
-  _deleteMember(member) {
-    member.deleteRecord();
-    member.save();
   }
 });
