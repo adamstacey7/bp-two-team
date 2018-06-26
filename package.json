@@ -13,8 +13,18 @@
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
+    "precommit": "lint-staged",
+    "prettier": "prettier --single-quote --write '{app,tests}/**/*.js'",
     "start": "ember serve",
     "test": "ember test"
+  },
+  "lint-staged": {
+    "*.{js,css}": [
+      "npm run lint:js --fix",
+      "prettier --single-quote --write",
+      "git add",
+      "npm run test"
+    ]
   },
   "devDependencies": {
     "bootstrap": "3.3.7",
@@ -43,8 +53,16 @@
     "ember-sinon": "^2.1.0",
     "ember-source": "~3.1.0",
     "ember-welcome-page": "3.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "13.0.0",
+    "eslint-config-prettier": "2.9.0",
     "eslint-plugin-ember": "5.0.0",
-    "loader.js": "4.2.3"
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "husky": "0.14.3",
+    "lint-staged": "7.2.0",
+    "loader.js": "4.2.3",
+    "prettier": "1.13.5"
   },
   "engines": {
     "node": "4.5 || 6.* || >= 7.*"

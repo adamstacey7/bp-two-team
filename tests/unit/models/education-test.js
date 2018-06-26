@@ -6,7 +6,6 @@ moduleForModel('education', 'Unit | Model | education', {
 });
 
 test('it exists', function(assert) {
-  let model = this.subject();
-  // let store = this.store();
+  const model = this.subject();
   assert.ok(!!model);
 });
