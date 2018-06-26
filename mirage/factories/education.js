@@ -1,7 +1,9 @@
 import { Factory, faker } from 'ember-cli-mirage';
 
 export default Factory.extend({
-  id(i) { return `${i}`; },
+  id(i) {
+    return `${i}`;
+  },
   title: faker.list.cycle(
     'Digital Technology Solutions',
     'IT for professionals',

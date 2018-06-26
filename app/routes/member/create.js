@@ -15,28 +15,21 @@ export default Route.extend({
     });
 
     return member.save().then(savedMember => {
-      const experience = this.get('store')
-        .createRecord('experience', {
-          details: formData.details,
-          industry: formData.industry,
-          member: savedMember
-        });
+      const experience = this.get('store').createRecord('experience', {
+        details: formData.details,
+        industry: formData.industry,
+        member: savedMember
+      });
 
-      const education = this.get('store')
-        .createRecord('education', {
-          title: formData.title,
-          grade: formData.grade,
-          member: savedMember
-        });
+      const education = this.get('store').createRecord('education', {
+        title: formData.title,
+        grade: formData.grade,
+        member: savedMember
+      });
 
-      const p = RSVP.Promise.all([
-        experience.save(),
-        education.save()
-      ]);
+      const p = RSVP.Promise.all([experience.save(), education.save()]);
 
-      return p.then(() => 
-        this.transitionTo(`/member/${member.get('id')}`)
-      );
+      return p.then(() => this.transitionTo(`/member/${member.get('id')}`));
     });
   },
   actions: {

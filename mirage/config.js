@@ -23,5 +23,5 @@ export default function() {
 
   this.get('/experiences');
   this.post('/experiences');
-  this.patch('/experiences/:id');  
+  this.patch('/experiences/:id');
 }
