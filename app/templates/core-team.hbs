@@ -1,6 +1,6 @@
 <div class="row core-team">
   {{#each model as |member|}}
-  <div class="col-md-4 member">{{team-list-item member=member}}
+  <div class="col-md-4 member">{{team-list-item member=member deleteMember="deleteMember"}}
   </div> {{/each}}
 </div>
 {{outlet}}
