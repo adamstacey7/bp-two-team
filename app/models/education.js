@@ -1,5 +1,4 @@
 import DS from 'ember-data';
-import { belongsTo } from 'ember-data/relationships';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
@@ -7,5 +6,5 @@ export default DS.Model.extend({
   end: DS.attr('string'),
   grade: DS.attr('string'),
   location: DS.attr('string'),
-  member: belongsTo()
+  member: DS.belongsTo()
 });
