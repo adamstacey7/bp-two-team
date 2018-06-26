@@ -1,5 +1,5 @@
 import { module, test, setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const ITEM = {
@@ -29,5 +29,16 @@ module('Integration | Component | team-list-item', function(hooks) {
       'Dev',
       'should be equal to the role passed through'
     );
+  });
+
+  test('should trigger the delete external action', async function(assert) {
+    assert.expect(1);
+
+    this.set('externalAction', () => {
+      assert.ok(true);
+    });
+
+    await render(hbs`{{team-list-item deleteMember=(action externalAction)}}`);
+    await click('.delete');
   });
 });
