@@ -7,7 +7,6 @@ export default Component.extend({
   },
   actions: {
     submitOne(member) {
-      // eslint-disable-line
       this.sendAction('submitTwo', member); // eslint-disable-line ember/closure-actions
     }
   }
