@@ -38,7 +38,7 @@ module('Acceptance | core team', function(hooks) {
   test('should go to member click of member', async function(assert) {
     setupMockData(server);
     await visit('/');
-    await click('.member:first-child');
+    await click('.member:first-child .details');
     assert.equal(
       currentURL(),
       '/member/0',
@@ -54,5 +54,17 @@ module('Acceptance | core team', function(hooks) {
       'Last Name: Stacey',
       'should equal last name of member 1'
     );
+  });
+
+  test('should delete member when clicking delete button for that member', async function(assert) {
+    setupMockData(server);
+    await visit('/');
+
+    assert.equal(this.element.querySelectorAll('.member').length, 1);
+
+    await click('.delete:first-child');
+
+    assert.equal(currentURL(), '/core-team');
+    assert.equal(this.element.querySelectorAll('.member').length, 0);
   });
 });

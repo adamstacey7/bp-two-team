@@ -1,7 +1,6 @@
 <div class="row core-team">
-  {{#each model as |member|}} {{#link-to "member.show" member}}
-  <div class="col-md-4 member">{{team-list-item member=member}}
-  </div>
-  {{/link-to}} {{/each}}
+  {{#each model as |member|}}
+  <div class="col-md-4 member">{{team-list-item member=member deleteMember=(action "deleteMember")}}
+  </div> {{/each}}
 </div>
 {{outlet}}

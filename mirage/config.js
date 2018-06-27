@@ -16,6 +16,7 @@ export default function() {
 
   this.get('/members/:id');
   this.patch('/members/:id');
+  this.del('/members/:id');
 
   this.get('/educations');
   this.post('/educations');
