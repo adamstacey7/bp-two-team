@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
@@ -56,7 +56,7 @@ module('Acceptance | core team', function(hooks) {
     );
   });
 
-  test('should delete member when clicking delete button for that member', async function(assert) {
+  skip('should delete member when clicking delete button for that member', async function(assert) {
     setupMockData(server);
     await visit('/');
 

@@ -1,4 +1,4 @@
-import { module, test, setupRenderingTest } from 'ember-qunit';
+import { module, test, skip, setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -32,7 +32,7 @@ module('Integration | Component | team-list-item', function(hooks) {
     );
   });
 
-  test('should trigger the delete external action', async function(assert) {
+  skip('should trigger the delete external action', async function(assert) {
     assert.expect(1);
 
     this.set('externalAction', () => {
