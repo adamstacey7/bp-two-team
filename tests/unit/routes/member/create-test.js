@@ -5,6 +5,7 @@ module('Unit | Route | route:member/create', function(hooks) {
   setupTest(hooks);
 
   test('it calls the create record method 3 times', function(assert) {
+    assert.expect(3);
     const route = this.owner.lookup('route:member/create');
 
     const myGetMock = () => ({
@@ -23,6 +24,6 @@ module('Unit | Route | route:member/create', function(hooks) {
       assert.ok(true, 'should call transition');
     };
 
-    return route._createData();
+    route._createData();
   });
 });
