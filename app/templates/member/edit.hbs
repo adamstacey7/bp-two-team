@@ -1,0 +1,37 @@
+<form {{action "submitTwo" on="submit"}} class="form-inline">
+  <div class="first-name">
+    <label>First Name:</label>
+    {{input type="search" placeholder="Adam..." value=model.firstName}}
+  </div>
+  <div class="last-name">
+    <label>Last Name:</label>
+    {{input type="search" placeholder="Stacey..." value=model.lastName}}
+  </div>
+  <h2>Experience</h2>
+  <ul class="experiences">
+    {{#each model.experiences as |item|}}
+    <li class="experience">
+      <div class="details">
+        <label>Details:</label>
+        {{input type="search" placeholder="I worked for..." value=item.details}}
+      </div>
+    </li>
+    {{else}}
+    <li>No Experiences</li>
+    {{/each}}
+  </ul>
+  <h2>Education</h2>
+  <ul class="educations">
+    {{#each model.educations as |item|}}
+    <li class="education">
+      <div class="title">
+        <label>Title:</label>
+        {{input type="search" placeholder="I worked for..." value=item.title}}
+      </div>
+    </li>
+    {{else}}
+    <li>No Education</li>
+    {{/each}}
+  </ul>
+  {{input type="submit" value="Save"}}
+</form>
