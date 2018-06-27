@@ -10,7 +10,6 @@ module('Unit | Route | route:member/edit', function(hooks) {
   });
 
   test('should transitions once saved', function(assert) {
-    // setupMockData(server);
     const route = this.owner.lookup('route:member/edit');
 
     const myGetMock = () => ({
