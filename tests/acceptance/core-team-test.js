@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import setupMockData from '../helpers/setupMockData';
 
 module('Acceptance | core team', function(hooks) {
   setupApplicationTest(hooks);
@@ -25,6 +26,7 @@ module('Acceptance | core team', function(hooks) {
   });
 
   test('should display correct number of team members', async function(assert) {
+    setupMockData(server);
     await visit('/');
     assert.equal(
       this.element.querySelectorAll('.member').length,
@@ -34,11 +36,12 @@ module('Acceptance | core team', function(hooks) {
   });
 
   test('should go to member click of member', async function(assert) {
+    setupMockData(server);
     await visit('/');
     await click('.member:first-child .details');
     assert.equal(
       currentURL(),
-      '/member/1',
+      '/member/0',
       "should navigate to first member's page"
     );
     assert.equal(
@@ -54,6 +57,7 @@ module('Acceptance | core team', function(hooks) {
   });
 
   test('should delete member when clicking delete button for that member', async function(assert) {
+    setupMockData(server);
     await visit('/');
 
     assert.equal(this.element.querySelectorAll('.member').length, 1);

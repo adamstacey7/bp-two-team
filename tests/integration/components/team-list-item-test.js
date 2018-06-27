@@ -3,7 +3,8 @@ import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 const ITEM = {
-  fullName: 'Aidan Freeman',
+  firstName: 'Aidan',
+  lastName: 'Freeman',
   role: 'Dev',
   profileImage: 'fake.jpg'
 };
