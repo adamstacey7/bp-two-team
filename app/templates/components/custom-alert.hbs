@@ -1,3 +1,17 @@
 {{#if isVisible}}
-<p>Alert Placeholder</p>
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <div class="modal-body">
+      <span class="close" {{action "close"}}>&times;</span>
+      <p>{{message}}</p>
+    </div>
+    <div class="modal-footer">
+      <button {{action "customAction" params}}>Confirm</button>
+      <button {{action "close"}}>Cancel</button>
+    </div>
+  </div>
+
+
+</div>
 {{/if}}
