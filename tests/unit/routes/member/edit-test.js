@@ -4,11 +4,6 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Route | route:member/edit', function(hooks) {
   setupTest(hooks);
 
-  test('it exists', function(assert) {
-    const route = this.owner.lookup('route:member/edit');
-    assert.ok(route);
-  });
-
   test('should transitions once saved', function(assert) {
     const route = this.owner.lookup('route:member/edit');
 
