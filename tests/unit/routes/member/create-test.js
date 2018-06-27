@@ -4,11 +4,11 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Route | route:member/create', function(hooks) {
   setupTest(hooks);
 
-  test('it calls the create record method 3 times', function(assert) {
+  test('should call save get and transitionTo methods', function(assert) {
     assert.expect(3);
     const route = this.owner.lookup('route:member/create');
 
-    const myGetMock = () => ({
+    route.modelFor = () => ({
       save() {
         assert.ok(true, 'should call save');
         return Promise.resolve();
@@ -19,7 +19,6 @@ module('Unit | Route | route:member/create', function(hooks) {
       }
     });
 
-    route.modelFor = myGetMock;
     route.transitionTo = () => {
       assert.ok(true, 'should call transition');
     };

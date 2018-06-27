@@ -4,11 +4,11 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Route | route:member/edit', function(hooks) {
   setupTest(hooks);
 
-  test('should transitions once saved', function(assert) {
+  test('should call save get and transitionTo methods', function(assert) {
     assert.expect(3);
     const route = this.owner.lookup('route:member/edit');
 
-    const myGetMock = () => ({
+    route.modelFor = () => ({
       save() {
         assert.ok(true, 'should call save');
         return Promise.resolve();
@@ -19,7 +19,6 @@ module('Unit | Route | route:member/edit', function(hooks) {
       }
     });
 
-    route.modelFor = myGetMock;
     route.transitionTo = () => {
       assert.ok(true, 'should call transition');
     };
