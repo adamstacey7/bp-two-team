@@ -14,11 +14,9 @@ export default Route.extend({
     this.get('application').setHeaderTitle('Create Member');
   },
   _createData() {
-    const model = this.modelFor(this.routeName);
-
-    return model
+    return this.modelFor(this.routeName)
       .save()
-      .then(() => this.transitionTo(`/member/${model.get('id')}`));
+      .then(model => this.transitionTo(`/member/${model.get('id')}`));
   },
   actions: {
     submitThree(formData) {

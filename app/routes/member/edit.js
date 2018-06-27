@@ -2,10 +2,9 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   _saveData() {
-    const model = this.modelFor(this.routeName);
-    return model
+    return this.modelFor(this.routeName)
       .save()
-      .then(() => this.transitionTo(`/member/${model.get('id')}`));
+      .then(model => this.transitionTo(`/member/${model.get('id')}`));
   },
   actions: {
     submitTwo() {

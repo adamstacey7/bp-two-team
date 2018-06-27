@@ -11,7 +11,7 @@ module('Unit | Route | route:member/edit', function(hooks) {
     route.modelFor = () => ({
       save() {
         assert.ok(true, 'should call save');
-        return Promise.resolve();
+        return Promise.resolve(this);
       },
       get() {
         assert.ok(true, 'should call id');
