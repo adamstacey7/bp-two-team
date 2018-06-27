@@ -5,6 +5,7 @@ module('Unit | Route | route:member/edit', function(hooks) {
   setupTest(hooks);
 
   test('should transitions once saved', function(assert) {
+    assert.expect(3);
     const route = this.owner.lookup('route:member/edit');
 
     const myGetMock = () => ({
@@ -23,6 +24,6 @@ module('Unit | Route | route:member/edit', function(hooks) {
       assert.ok(true, 'should call transition');
     };
 
-    return route._saveData();
+    route._saveData();
   });
 });

@@ -1,28 +1,32 @@
-<form {{action "submitOne" member on="submit"}} class="form-inline">
+<form {{action "submitOne" on="submit"}} class="form-inline">
     <div class="form-group">
         <label for="first-name">First Name:</label>
-        {{input value=member.firstName class="form-control" name="first-name"}}
+        {{input value=model.firstName class="form-control" name="first-name"}}
         <label for="last-name">Last Name:</label>
-        {{input value=member.lastName class="form-control" name="last-name"}}
+        {{input value=model.lastName class="form-control" name="last-name"}}
     </div>
     <div class="experience form-group">
+      {{#each model.experiences as |item| }}
         <label for="experience-details">Details:</label>
-        {{input value=member.details class="form-control" name="experience-details"}}
+        {{input value=item.details class="form-control" name="experience-details"}}
         <label for="experience-industry">Industry:</label>
-        {{input value=member.industry class="form-control" name="experience-industry"}}
+        {{input value=item.industry class="form-control" name="experience-industry"}}
+      {{/each}}
     </div>
     <div class="education form-group">
+      {{#each model.educations as |item| }}
         <label for="education-title">Title:</label>
-        {{input value=member.title class="form-control" name="education-details"}}
+        {{input value=item.title class="form-control" name="education-details"}}
         <label for="education-grade">Grade:</label>
-        {{input value=member.grade class="form-control" name="education-grade"}}
+        {{input value=item.grade class="form-control" name="education-grade"}}
+      {{/each}}
     </div>
     <div class="input-group-btn">
         <button
             type="submit"
             class="btn btn-success"
         >
-            Save Member
+            Save
         </button>
     </div>
 </form>
