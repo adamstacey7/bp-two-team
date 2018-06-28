@@ -11,9 +11,8 @@ Router.map(function() {
   this.route('core-team');
   this.route('not-found', { path: '/*path' });
   this.route('member', function() {
-    this.route('show', { path: '/:member_id' }, function() {
-      this.route('create');
-    });
+    this.route('show', { path: '/:member_id' });
+    this.route('edit', { path: '/:member_id/edit' });
     this.route('create');
   });
 });
