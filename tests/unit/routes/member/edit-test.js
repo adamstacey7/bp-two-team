@@ -1,12 +1,12 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Route | route:member/create', function(hooks) {
+module('Unit | Route | route:member/edit', function(hooks) {
   setupTest(hooks);
 
   test('should call save get and transitionTo methods', function(assert) {
     assert.expect(3);
-    const route = this.owner.lookup('route:member/create');
+    const route = this.owner.lookup('route:member/edit');
 
     route.modelFor = () => ({
       save() {
@@ -23,6 +23,6 @@ module('Unit | Route | route:member/create', function(hooks) {
       assert.ok(true, 'should call transition');
     };
 
-    route._createData();
+    route._saveData();
   });
 });
