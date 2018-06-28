@@ -25,7 +25,7 @@ export default Controller.extend({
       'confirmationMessage',
       `Are you sure you want to delete member ${member.firstName} ${
         member.lastName
-      }`
+      }?`
     );
     this.set('selectedMember', [member]);
   },
