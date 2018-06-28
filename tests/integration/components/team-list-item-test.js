@@ -1,4 +1,4 @@
-import { module, test, skip, setupRenderingTest } from 'ember-qunit';
+import { module, test, setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -32,14 +32,16 @@ module('Integration | Component | team-list-item', function(hooks) {
     );
   });
 
-  skip('should trigger the delete external action', async function(assert) {
+  test('should trigger the delete external action', async function(assert) {
     assert.expect(1);
 
     this.set('externalAction', () => {
       assert.ok(true);
     });
 
-    await render(hbs`{{team-list-item deleteMember=(action externalAction)}}`);
+    await render(
+      hbs`{{team-list-item toggleConfirmation=(action externalAction)}}`
+    );
     await click('.delete');
   });
 });
