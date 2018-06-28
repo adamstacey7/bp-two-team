@@ -14,7 +14,6 @@
   </div>
   {{/link-to}}
   <div class="col-md-2">
-    <span class="delete" {{action "deleteMember" member}}>&times;</span>
+    <span class="delete" {{action "showConfirmationMessage" member}}>&times;</span>
   </div>
 </div>
-{{yield}}

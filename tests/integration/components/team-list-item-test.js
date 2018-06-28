@@ -39,7 +39,9 @@ module('Integration | Component | team-list-item', function(hooks) {
       assert.ok(true);
     });
 
-    await render(hbs`{{team-list-item deleteMember=(action externalAction)}}`);
+    await render(
+      hbs`{{team-list-item toggleConfirmation=(action externalAction)}}`
+    );
     await click('.delete');
   });
 });

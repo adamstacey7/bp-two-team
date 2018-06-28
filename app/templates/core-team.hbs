@@ -1,6 +1,8 @@
 <div class="row core-team">
   {{#each model as |member|}}
-  <div class="col-md-4 member">{{team-list-item member=member deleteMember=(action "deleteMember")}}
+  <div class="col-md-4 member">{{team-list-item member=member toggleConfirmation=(action "setConfirmationDetails") deleteMember=(action "deleteMember")}}
   </div> {{/each}}
 </div>
-{{outlet}}
+
+{{#if confirmation}} {{custom-alert toggleVisibility=(action "toggleConfirmation") customAction=(action "deleteMember") params=selectedMember
+message=confirmationMessage}} {{/if}}
