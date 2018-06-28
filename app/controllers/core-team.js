@@ -16,6 +16,14 @@ export default Controller.extend({
   confirmation: false,
   confirmationMessage: '',
   _deleteMember(member) {
+    member.experiences.forEach(experience => {
+      experience.deleteRecord();
+      experience.save();
+    });
+    member.educations.forEach(education => {
+      education.deleteRecord();
+      education.save();
+    });
     member.deleteRecord();
     member.save();
   },

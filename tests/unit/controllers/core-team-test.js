@@ -9,10 +9,10 @@ module('Unit | Controller | core-team', function(hooks) {
   setupTest(hooks);
 
   test('should call delete record and the call save for a model passed in on method deleteMember', function(assert) {
-    assert.expect(4);
+    assert.expect(20);
     const controller = this.owner.lookup('controller:core-team');
 
-    const member = {
+    const deleteMethods = {
       deleteRecord() {
         assert.ok(true, 'should call deleteRecord');
       },
@@ -20,6 +20,11 @@ module('Unit | Controller | core-team', function(hooks) {
         assert.ok(true, 'should call save');
       }
     };
+
+    const member = Object.assign({}, deleteMethods, {
+      educations: [deleteMethods, deleteMethods],
+      experiences: [deleteMethods, deleteMethods]
+    });
 
     controller._deleteMember(member);
     controller.send('deleteMember', member);
