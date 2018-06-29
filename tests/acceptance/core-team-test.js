@@ -55,4 +55,24 @@ module('Acceptance | core team', function(hooks) {
       'should equal last name of member 1'
     );
   });
+
+  test('should redirect to core team page when clicking on logo', async function(assert) {
+    await visit('/');
+    await click('.header-title');
+    assert.equal(
+      currentURL(),
+      '/core-team',
+      'should redirect to core team page'
+    );
+  });
+
+  test('should redirect to create member page when clicking on link in app header', async function(assert) {
+    await visit('/');
+    await click('.create-member-link a');
+    assert.equal(
+      currentURL(),
+      '/member/create',
+      'should redirect to member creation page'
+    );
+  });
 });
