@@ -61,7 +61,7 @@ module('Acceptance | member view', function(hooks) {
     await visit('/member/3');
 
     assert.equal(
-      this.element.querySelector('h1').textContent,
+      this.element.querySelector('.not-found').textContent,
       'Route not found 404'
     );
   });
