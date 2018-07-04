@@ -11,7 +11,6 @@ export default Route.extend({
   },
   init() {
     this._super(...arguments);
-    this.get('application').setHeaderTitle('Create Member');
   },
   _createData() {
     return this.modelFor(this.routeName)

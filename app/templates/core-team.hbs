@@ -1,3 +1,4 @@
+{{page-header headerTitle=application.headerTitle}}
 <div class="row core-team">
   {{#each model as |member|}}
   <div class="col-md-4 member">{{team-list-item member=member toggleConfirmation=(action "setConfirmationDetails") deleteMember=(action "deleteMember")}}
