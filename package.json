@@ -12,18 +12,18 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "lint:js": "eslint ./*.js app blueprints config lib server tests",
+    "lint:js": "eslint ./*.js app config tests",
     "precommit": "lint-staged",
     "prettier": "prettier --single-quote --write '{app,tests}/**/*.js'",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "npm run test"
   },
   "lint-staged": {
     "*.{js,css}": [
       "prettier --single-quote --write",
       "npm run lint:js --fix",
       "git add .",
-      "npm run test"
+      "ember test"
     ]
   },
   "devDependencies": {
