@@ -16,12 +16,15 @@ export default function() {
 
   this.get('/members/:id');
   this.patch('/members/:id');
+  this.del('/members/:id');
 
   this.get('/educations');
   this.post('/educations');
   this.patch('/educations/:id');
+  this.del('/educations/:id');
 
   this.get('/experiences');
   this.post('/experiences');
   this.patch('/experiences/:id');
+  this.del('/experiences/:id');
 }

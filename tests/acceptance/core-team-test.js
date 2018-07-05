@@ -30,7 +30,7 @@ module('Acceptance | core team', function(hooks) {
     await visit('/');
     assert.equal(
       this.element.querySelectorAll('.member').length,
-      1,
+      3,
       'should be equal to the number of members returned from ember data'
     );
   });
@@ -38,7 +38,7 @@ module('Acceptance | core team', function(hooks) {
   test('should go to member click of member', async function(assert) {
     setupMockData(server);
     await visit('/');
-    await click('.member:first-child');
+    await click('.member:first-child .details');
     assert.equal(
       currentURL(),
       '/member/0',
@@ -53,6 +53,45 @@ module('Acceptance | core team', function(hooks) {
       this.element.querySelector('.last-name').textContent.trim(),
       'Last Name: Stacey',
       'should equal last name of member 1'
+    );
+  });
+
+  test('should open confirmation alert when clicking delete button for that member', async function(assert) {
+    setupMockData(server);
+    await visit('/');
+
+    await click('.delete:first-child');
+
+    assert.equal(currentURL(), '/core-team');
+    assert.ok(
+      this.element.querySelector('.modal'),
+      'should show the confirmation alert'
+    );
+    assert.equal(
+      this.element.querySelector('.modal-body p').textContent.trim(),
+      'Are you sure you want to delete member Adam Stacey?',
+      'should display the correct message'
+    );
+  });
+
+  test('should delete the member after confirming it', async function(assert) {
+    setupMockData(server);
+    await visit('/');
+
+    assert.equal(this.element.querySelectorAll('.member').length, 3);
+
+    await click('.delete:first-child');
+
+    await click('.confirm');
+
+    assert.ok(
+      !this.element.querySelector('.modal'),
+      'should close the confirmation alert'
+    );
+    assert.equal(
+      this.element.querySelectorAll('.member').length,
+      2,
+      'should delete the member'
     );
   });
 

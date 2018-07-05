@@ -23,7 +23,7 @@ module('Acceptance | member view', function(hooks) {
 
   test('check /member/0 pulls through corret user data', async function(assert) {
     setupMockData(server);
-    await visit('/member/0');
+    await visit('/member/2');
 
     assert.equal(
       this.element.querySelector('.first-name').textContent,
