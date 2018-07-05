@@ -18,11 +18,9 @@ module('Acceptance | edit member', function(hooks) {
   test('cancelling 0/edit will route users back to member/0', async function(assert) {
     setupMockData(server);
     await visit('/member/0/edit');
-
     assert.equal(currentURL(), '/member/0/edit');
 
     await click('.btn.btn-default');
-
     assert.equal(currentURL(), '/member/0');
   });
 });
