@@ -17,7 +17,7 @@ module('Integration | Component | team-list-item', function(hooks) {
     await render(hbs`{{team-list-item member=member}}`);
     assert.equal(
       this.element.querySelector('.photo').getAttribute('src'),
-      `assets/images/${ITEM.profileImage}`,
+      `${ITEM.profileImage}`,
       'should equal the path to images suffixed with the mock image file name'
     );
     assert.equal(
