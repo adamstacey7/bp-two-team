@@ -16,14 +16,14 @@
     "precommit": "lint-staged",
     "prettier": "prettier --single-quote --write '{app,tests}/**/*.js'",
     "start": "ember serve",
-    "test": "npm run test"
+    "test": "ember test"
   },
   "lint-staged": {
     "*.{js,css}": [
       "prettier --single-quote --write",
       "npm run lint:js --fix",
       "git add .",
-      "ember test"
+      "npm run test"
     ]
   },
   "devDependencies": {
