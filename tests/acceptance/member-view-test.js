@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import setupMockData from '../helpers/setupMockData';
@@ -21,7 +21,7 @@ module('Acceptance | member view', function(hooks) {
     assert.equal(currentURL(), '/member/0');
   });
 
-  test('check /member/0 pulls through corret user data', async function(assert) {
+  test('check /member/0 pulls through correct user data', async function(assert) {
     setupMockData(server);
     await visit('/member/2');
 
@@ -64,5 +64,14 @@ module('Acceptance | member view', function(hooks) {
       this.element.querySelector('.not-found').textContent,
       'Route not found 404'
     );
+  });
+
+  test('should route users to edit template if edit button clicked', async function(assert) {
+    setupMockData(server);
+    await visit('/member/0');
+    assert.equal(currentURL(), '/member/0');
+
+    await click('.btn.btn-primary');
+    assert.equal(currentURL(), '/member/0/edit');
   });
 });
