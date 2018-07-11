@@ -31,7 +31,7 @@ module('Acceptance | member view', function(hooks) {
     );
     assert.equal(
       this.element.querySelector('.last-name').textContent,
-      'Last Name: Stacey'
+      'Last Name: Smith (Herbs)'
     );
 
     assert.equal(
