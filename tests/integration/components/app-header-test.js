@@ -14,7 +14,7 @@ module('Integration | Component | app-header', function(hooks) {
     );
     assert.equal(
       this.element.querySelector('.create-member-link').textContent.trim(),
-      'Create Member',
+      'Add Member',
       'should equal the name of the link label to create member page'
     );
   });
