@@ -11,7 +11,20 @@ export default function() {
   this.namespace = '/api'; // make this `/api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
-  this.get('/members');
+  this.get('/members', (db, req) => {
+    if (req.queryParams.role !== undefined) {
+      const filteredResults = db.members
+        .all()
+        .filter(
+          i =>
+            i.attrs.role
+              .toLowerCase()
+              .indexOf(req.queryParams.role.toLowerCase()) !== -1
+        );
+      return filteredResults;
+    }
+    return db.members.all();
+  });
   this.post('/members');
 
   this.get('/members/:id');
