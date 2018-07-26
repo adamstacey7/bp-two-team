@@ -1,24 +1,79 @@
-// import { moduleForComponent, test } from 'ember-qunit';
-// import hbs from 'htmlbars-inline-precompile';
+import { module, test, setupRenderingTest } from 'ember-qunit';
+import { render, settled, triggerKeyEvent, fillIn } from '@ember/test-helpers';
+import hbs from 'htmlbars-inline-precompile';
+import { resolve } from 'rsvp';
 
-// moduleForComponent('team-filter', 'Integration | Component | team-filter', {
-//   integration: true
-// });
+const ITEMS = [{ role: 'Tech Lead' }, { role: 'Product Owner' }];
+const FILTERED_ITEMS = [{ role: 'Tech Lead' }];
 
-// test('it renders', function(assert) {
-//   // Set any properties with this.set('myProperty', 'value');
-//   // Handle any actions with this.on('myAction', function(val) { ... });
+module('Integration | Component | team-filter', function(hooks) {
+  setupRenderingTest(hooks);
 
-//   this.render(hbs`{{team-filter}}`);
+  test('should initially show all team members', async function(assert) {
+    this.set('filterTeam', () => resolve({ results: ITEMS }));
+    await render(hbs`
+    {{#team-filter filter=(action filterTeam) as |results|}}
+      <ul>
+      {{#each results as |item|}}
+        <li class="role">
+          {{item.role}}
+        </li>
+      {{/each}}
+      </ul>
+    {{/team-filter}}
+  `);
 
-//   assert.equal(this.$().text().trim(), '');
+    return settled().then(() => {
+      assert.equal(this.element.querySelectorAll('.role').length, 2);
+      assert.equal(
+        this.element.querySelector('.role').textContent.trim(),
+        'Tech Lead'
+      );
+    });
+  });
 
-//   // Template block usage:
-//   this.render(hbs`
-//     {{#team-filter}}
-//       template block text
-//     {{/team-filter}}
-//   `);
+  test('should update with matching listings', async function(assert) {
+    this.set('filterTeam', val => {
+      let resolveCall;
+      if (val === '')
+        resolveCall = resolve({
+          query: val,
+          results: ITEMS
+        });
+      else
+        resolveCall = resolve({
+          query: val,
+          results: FILTERED_ITEMS
+        });
 
-//   assert.equal(this.$().text().trim(), 'template block text');
-// });
+      return resolveCall;
+    });
+
+    await render(hbs`
+    {{#team-filter filter=(action filterTeam) as |results|}}
+      <ul>
+      {{#each results as |item|}}
+        <li class="role">
+          {{item.role}}
+        </li>
+      {{/each}}
+      </ul>
+    {{/team-filter}}
+  `);
+
+    await fillIn(this.element.querySelector('.team-filter input'), 't');
+    await triggerKeyEvent(
+      this.element.querySelector('.team-filter input'),
+      'keyup',
+      83
+    );
+
+    return settled().then(() => {
+      assert.equal(this.element.querySelectorAll('.role').length, 1);
+      assert.equal(
+        this.element.querySelector('.role').textContent.trim(),
+        'Tech Lead'
+      );
+    });
+  });
+});

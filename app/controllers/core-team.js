@@ -17,8 +17,13 @@ export default Controller.extend({
     filterTeam(param) {
       let filteredResults;
       if (param !== '')
-        filteredResults = this.get('store').query('member', { role: param });
-      else filteredResults = this.get('store').findAll('member');
+        filteredResults = this.get('store')
+          .query('member', { role: param })
+          .then(results => ({ query: param, results }));
+      else
+        filteredResults = this.get('store')
+          .findAll('member')
+          .then(results => ({ query: param, results }));
       return filteredResults;
     }
   },
