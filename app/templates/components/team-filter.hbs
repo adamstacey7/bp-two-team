@@ -1,4 +1,9 @@
-{{input value= value
+<select onchange={{action "handlePropertyChange" value="target.value"}}>
+  {{#each options as |option|}}
+    <option value={{option.value}}>{{option.name}}</option>
+  {{/each}}
+</select>
+{{input value=value
         key-up=(action "handleFilterEntry")
         class="light"
         placeholder="Type here..."}}

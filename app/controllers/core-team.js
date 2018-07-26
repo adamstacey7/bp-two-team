@@ -14,11 +14,11 @@ export default Controller.extend({
     toggleConfirmation() {
       this._toggleConfirmation();
     },
-    filterTeam(param) {
+    filterTeam(param, type) {
       let filteredResults;
-      if (param !== '')
+      if (param !== '' && type !== '')
         filteredResults = this.get('store')
-          .query('member', { role: param })
+          .query('member', { [type]: param })
           .then(results => ({ query: param, results }));
       else
         filteredResults = this.get('store')
