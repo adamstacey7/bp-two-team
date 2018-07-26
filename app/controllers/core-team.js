@@ -13,6 +13,13 @@ export default Controller.extend({
     },
     toggleConfirmation() {
       this._toggleConfirmation();
+    },
+    filterTeam(param) {
+      let filteredResults;
+      if (param !== '')
+        filteredResults = this.get('store').query('member', { role: param });
+      else filteredResults = this.get('store').findAll('member');
+      return filteredResults;
     }
   },
   confirmation: false,
