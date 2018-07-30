@@ -33,9 +33,9 @@ module('Integration | Component | team-filter', function(hooks) {
   });
 
   test('should update with matching listings', async function(assert) {
-    this.set('filterTeam', val => {
+    this.set('filterTeam', (val, type) => {
       let resolveCall;
-      if (val === '')
+      if (val === '' || type === '')
         resolveCall = resolve({
           query: val,
           results: ITEMS
@@ -61,6 +61,8 @@ module('Integration | Component | team-filter', function(hooks) {
     {{/team-filter}}
   `);
 
+    const option = this.element.querySelectorAll('select option')[1].value;
+    await fillIn(this.element.querySelector('select'), option);
     await fillIn(this.element.querySelector('.team-filter input'), 't');
     await triggerKeyEvent(
       this.element.querySelector('.team-filter input'),
