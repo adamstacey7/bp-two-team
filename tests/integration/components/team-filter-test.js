@@ -61,7 +61,7 @@ module('Integration | Component | team-filter', function(hooks) {
     {{/team-filter}}
   `);
 
-    const option = this.element.querySelectorAll('select option')[1].value;
+    const option = this.element.querySelectorAll('select option')[3].value;
     await fillIn(this.element.querySelector('select'), option);
     await fillIn(this.element.querySelector('.team-filter input'), 't');
     await triggerKeyEvent(

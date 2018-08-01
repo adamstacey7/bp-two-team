@@ -1,5 +1,11 @@
 import { module, test } from 'qunit';
-import { click, visit, currentURL } from '@ember/test-helpers';
+import {
+  click,
+  visit,
+  currentURL,
+  triggerKeyEvent,
+  fillIn
+} from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import setupMockData from '../helpers/setupMockData';
@@ -112,6 +118,25 @@ module('Acceptance | core team', function(hooks) {
       currentURL(),
       '/member/create',
       'should redirect to member creation page'
+    );
+  });
+
+  test('should filter by the chosen property', async function(assert) {
+    setupMockData(server);
+    await visit('/');
+    const option = this.element.querySelectorAll('select option')[1].value;
+    await fillIn(this.element.querySelector('select'), option);
+    await fillIn(this.element.querySelector('.team-filter input'), 'Adam');
+    await triggerKeyEvent(
+      this.element.querySelector('.team-filter input'),
+      'keyup',
+      83
+    );
+
+    assert.equal(this.element.querySelectorAll('.details').length, 2);
+    assert.equal(
+      this.element.querySelector('.role').textContent.trim(),
+      'Tech Lead'
     );
   });
 });
