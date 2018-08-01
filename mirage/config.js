@@ -12,15 +12,21 @@ export default function() {
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
   this.get('/members', (db, req) => {
-    if (req.queryParams.role !== undefined) {
-      const filteredResults = db.members
-        .all()
-        .filter(
+    if (
+      Object.keys(req.queryParams).length !== 0 &&
+      req.queryParams.constructor === Object
+    ) {
+      let filteredResults = db.members.all();
+
+      Object.keys(req.queryParams).forEach(param => {
+        filteredResults = filteredResults.filter(
           i =>
-            i.attrs.role
+            i.attrs[param]
               .toLowerCase()
-              .indexOf(req.queryParams.role.toLowerCase()) !== -1
+              .indexOf(req.queryParams[param].toLowerCase()) !== -1
         );
+      });
+
       return filteredResults;
     }
     return db.members.all();
